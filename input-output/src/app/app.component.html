@@ -1,0 +1,39 @@
+<div class="container">
+
+  <div class="row">
+    <div class="custom-control custom-switch col">
+      <input type="checkbox" class="custom-control-input" id="customSwitch1" checked (click)="cambioEjemplo()">
+      <label class="custom-control-label" for="customSwitch1">Cambiar ejemplo</label>
+    </div>
+  </div>
+
+  <div *ngIf="mostrar" class="row">
+
+    <div class="col">
+      <h3>Lista de Topos:</h3>
+      <app-lista-topos (topoSelected)="cambiarTopo($event)"></app-lista-topos>
+    </div>
+
+    <div class="col">
+      <h3>Detalle del Topo:</h3>
+      <app-detalle-topo [topo]="topo"></app-detalle-topo>
+    </div>
+
+  </div>
+
+  <div *ngIf="!mostrar" class="row">
+
+      <div class="col">
+        <h3>Lista de Topos:</h3>
+        <app-lista-topos-objetos (informarEvent)="cambiarTopoSeleccionado($event)"></app-lista-topos-objetos>
+      </div>
+
+      <div class="col">
+        <h3>Detalle del Topo:</h3>
+        <app-detalle-topo-objetos [topo]="topoSeleccionado"></app-detalle-topo-objetos>
+      </div>
+
+    </div>
+
+</div>
+
